@@ -3,364 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>БОЛЭРИЯ | Современный лизинг для бизнеса</title>
+    <title>БОЛЭРИЯ | Энергия и движение вашего бизнеса</title>
     
-    <!-- Подключение шрифтов Google (Roboto) и иконок Material Design -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
     <style>
-        /* ================= GOOGLE MATERIAL DESIGN VARIABLES ================= */
+        /* ================= ЦВЕТОВАЯ ГАММА (СИНЕ-ЗЕЛЕНАЯ ЭНЕРГИЯ) ================= */
         :root {
-            --primary: #1a73e8; /* Google Blue */
-            --primary-hover: #1557b0;
+            --primary: #1a73e8; /* Синий Google */
+            --accent: #00d26a; /* Яркий энергетический зеленый */
+            --gradient: linear-gradient(135deg, #1a73e8, #00d26a);
+            --gradient-hover: linear-gradient(135deg, #1557b0, #00b359);
             --surface: #ffffff;
-            --background: #f8f9fa; /* Light Gray */
-            --text-primary: #202124;
-            --text-secondary: #5f6368;
-            --border: #e8eaed;
-            --shadow-1: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-            --shadow-2: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-            --radius-sm: 8px;
+            --background: #f4f7f6; /* Легкий холодный оттенок серого */
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --border: #e2e8f0;
+            --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-glow: 0 15px 35px -5px rgba(0, 210, 106, 0.3);
             --radius-md: 16px;
             --radius-lg: 24px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ================= BASE STYLES ================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: var(--background);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
+        /* ================= БАЗОВЫЕ НАСТРОЙКИ ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        body { background-color: var(--background); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth;}
         a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        /* ================= ТИПОГРАФИКА ================= */
+        h1 { font-size: 3.8rem; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
+        h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        p { color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 20px; }
 
-        /* ================= TYPOGRAPHY ================= */
-        h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; }
-        h2 { font-size: 2.5rem; font-weight: 500; margin-bottom: 2rem; color: var(--text-primary); }
-        p { color: var(--text-secondary); font-size: 1.1rem; }
-
-        /* ================= BUTTONS (MATERIAL STYLE) ================= */
+        /* ================= КНОПКИ ================= */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            border-radius: 100px; /* Pill shape for Google MD3 */
-            font-weight: 500;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
-            transition: var(--transition);
-            gap: 8px;
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 28px; border-radius: 100px; font-weight: 600; font-size: 1rem;
+            cursor: pointer; border: none; transition: var(--transition); gap: 8px;
         }
+        .btn-primary { background: var(--gradient); color: white; box-shadow: var(--shadow-glow); }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 40px -10px rgba(0, 210, 106, 0.5); }
+        .btn-outline { background: transparent; color: var(--text-primary); border: 2px solid var(--border); }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 2px 4px rgba(26, 115, 232, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            box-shadow: 0 4px 8px rgba(26, 115, 232, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* ================= HEADER ================= */
-        header {
-            background-color: var(--surface);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-links { display: flex; gap: 30px; }
+        /* ================= ШАПКА ================= */
+        header { background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: var(--shadow-1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); display: flex; align-items: center; gap: 8px; letter-spacing: 1px; }
+        .logo .dot { color: var(--accent); font-size: 2.5rem; line-height: 0; margin-left: -4px;}
+        .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { font-weight: 500; color: var(--text-secondary); transition: var(--transition); }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
 
-        /* ================= HERO SECTION ================= */
-        .hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(to bottom right, #ffffff, #e8f0fe);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 { margin-bottom: 20px; color: var(--text-primary); }
-        .hero p { margin-bottom: 40px; font-size: 1.25rem; }
-
-        /* Hero Background Animation */
-        .hero-shape {
-            position: absolute;
-            background: rgba(26, 115, 232, 0.05);
-            border-radius: 50%;
-            z-index: 1;
+        /* ================= ГЛАВНЫЙ ЭКРАН (HERO) ================= */
+        .hero { padding: 180px 0 100px; position: relative; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(0, 210, 106, 0.1), transparent 50%), radial-gradient(circle at bottom left, rgba(26, 115, 232, 0.1), transparent 50%); z-index: -1; }
+        .hero-container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-content { flex: 1; max-width: 600px; }
+        .hero-buttons { display: flex; gap: 16px; margin-top: 30px; }
+        
+        /* Картинка 1: Сфера/Геометрия */
+        .hero-image { flex: 1; position: relative; }
+        .hero-image img {
+            width: 100%; aspect-ratio: 1/1; object-fit: cover;
+            border-radius: 50%; box-shadow: var(--shadow-glow);
             animation: float 6s ease-in-out infinite;
         }
-        .shape-1 { width: 400px; height: 400px; top: -100px; right: -50px; }
-        .shape-2 { width: 300px; height: 300px; bottom: 50px; right: 20%; animation-delay: -3s; }
 
         @keyframes float {
-            0% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-            100% { transform: translateY(0px) scale(1); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        /* ================= BENEFITS CARDS ================= */
-        .benefits { padding: 80px 0; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* ================= БЛОК "ТРАЕКТОРИЯ УСПЕХА" ================= */
+        .trajectory { padding: 100px 0; background: var(--surface); }
+        .split-section { display: flex; align-items: center; gap: 60px; }
+        .split-section.reverse { flex-direction: row-reverse; }
+        /* Картинка 2: Мишень */
+        .split-image { flex: 1; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-2); }
+        .split-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+        .split-image:hover img { transform: scale(1.05); }
+        .split-content { flex: 1; }
+        .tag { display: inline-block; padding: 6px 16px; background: rgba(0, 210, 106, 0.1); color: var(--accent); border-radius: 100px; font-weight: 700; margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* ================= КАТАЛОГ (АВТОМОБИЛИ) ================= */
+        .catalog { padding: 100px 0; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 40px;}
+        .catalog-card {
+            background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-1); transition: var(--transition); border: 1px solid var(--border);
         }
+        .catalog-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-glow); border-color: rgba(0, 210, 106, 0.3); }
+        .catalog-img { height: 220px; overflow: hidden; }
+        .catalog-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .catalog-card:hover .catalog-img img { transform: scale(1.08); }
+        .catalog-info { padding: 25px; }
+        .catalog-info h3 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; }
+        .catalog-link { color: var(--primary); font-weight: 600; display: inline-flex; align-items: center; margin-top: 15px; }
+        .catalog-link:hover { color: var(--accent); gap: 5px; }
 
-        .card {
-            background: var(--surface);
-            padding: 30px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-1);
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
+        /* ================= ПРЕИМУЩЕСТВА С ИЛЛЮСТРАЦИЕЙ ================= */
+        .benefits { padding: 100px 0; background: var(--surface); }
+        .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;}
+        .b-cards { display: grid; gap: 20px; }
+        .benefit-card { background: var(--background); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border); transition: var(--transition); display: flex; gap: 20px; align-items: flex-start;}
+        .benefit-card:hover { box-shadow: var(--shadow-1); border-left: 4px solid var(--accent); transform: translateX(5px); }
+        .benefit-card .icon-wrap { background: var(--gradient); color: white; padding: 15px; border-radius: var(--radius-md); display: flex; box-shadow: 0 5px 15px rgba(0, 210, 106, 0.3); }
+        /* Картинка 3: Инновации/Светящаяся сфера */
+        .benefits-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-2); height: 100%; min-height: 400px;}
+        .benefits-image img { width: 100%; height: 100%; object-fit: cover; }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-2);
-        }
-
-        .card .material-icons-round {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            background: #e8f0fe;
-            padding: 16px;
-            border-radius: var(--radius-md);
-        }
-
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; font-weight: 500; }
-
-        /* ================= CALCULATOR (MATERIAL SLIDERS) ================= */
-        .calculator-section {
-            background-color: var(--surface);
-            padding: 80px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
+        /* ================= КАЛЬКУЛЯТОР (С НЕОНОВЫМ ФОНОМ) ================= */
+        .calculator-section { padding: 100px 0; background: #0f172a; color: white; position: relative;}
+        .calculator-section h2 { color: white; text-align: center; }
         .calc-wrapper {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow-2);
-            max-width: 800px;
-            margin: 0 auto;
+            background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); max-width: 1000px; margin: 0 auto;
+            display: flex; color: var(--text-primary);
         }
-
-        .slider-group { margin-bottom: 30px; }
-        .slider-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
+        /* Картинка 4: Неоновые линии/Траектория */
+        .calc-image { width: 40%; position: relative; }
+        .calc-image img { width: 100%; height: 100%; object-fit: cover; }
+        .calc-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, var(--surface)); }
         
-        .slider-value { color: var(--primary); font-size: 1.2rem; font-weight: 700; background: #e8f0fe; padding: 4px 12px; border-radius: 20px;}
+        .calc-body { width: 60%; padding: 50px; }
+        .slider-group { margin-bottom: 35px; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 600; }
+        .slider-value { color: var(--accent); font-size: 1.2rem; font-weight: 800; background: rgba(0, 210, 106, 0.1); padding: 4px 16px; border-radius: 100px;}
+        
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 28px; width: 28px; border-radius: 50%; background: var(--surface); border: 4px solid var(--accent); cursor: pointer; margin-top: -10px; box-shadow: 0 4px 10px rgba(0, 210, 106, 0.4); transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: var(--border); border-radius: 4px; overflow: hidden; }
 
-        /* Custom Material Range Slider */
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            background: transparent;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 24px;
-            width: 24px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            margin-top: -10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            transition: transform 0.1s;
-        }
-        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 6px;
-            cursor: pointer;
-            background: var(--border);
-            border-radius: 3px;
-        }
+        .calc-result { background: var(--background); padding: 30px; border-radius: var(--radius-md); text-align: center; margin-top: 20px; border: 1px solid var(--border);}
+        .calc-result h4 { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 10px; font-weight: 500;}
+        .calc-result .total { font-size: 3.5rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; line-height: 1;}
 
-        .calc-result {
-            background: #e8f0fe;
-            padding: 30px;
-            border-radius: var(--radius-md);
-            text-align: center;
-            margin-top: 40px;
-        }
-        .calc-result h4 { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 10px; font-weight: 400;}
-        .calc-result .total { font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px;}
+        /* ================= ПОДВАЛ ================= */
+        footer { background: #0f172a; padding: 60px 0; text-align: center; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer h2 { color: white; margin-bottom: 10px; }
 
-        /* ================= FOOTER ================= */
-        footer { background: var(--surface); padding: 40px 0; text-align: center; color: var(--text-secondary); }
+        /* ================= АНИМАЦИИ ================= */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* ================= SCROLL ANIMATIONS (JS classes) ================= */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Адаптив */
+        @media (max-width: 992px) {
+            .hero-container, .split-section, .benefits-grid, .calc-wrapper { flex-direction: column; text-align: center; }
+            .hero-image, .calc-image { width: 100%; }
+            .calc-image { height: 200px; }
+            .calc-image::after { background: linear-gradient(to bottom, transparent, var(--surface)); }
+            .calc-body { width: 100%; padding: 30px; }
+            .benefit-card { text-align: left; }
+            .split-section.reverse { flex-direction: column; }
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.8rem; }
             .nav-links { display: none; }
-            .calc-wrapper { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Навигация -->
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <span class="material-icons-round">directions_car</span> БОЛЭРИЯ
+                БОЛЭРИЯ<span class="dot">.</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#benefits">Преимущества</a></li>
-                <li><a href="#calculator">Калькулятор</a></li>
-                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#about">Концепция</a></li>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#benefits">Технологии</a></li>
+                <li><a href="#calculator">Расчет</a></li>
             </ul>
-            <button class="btn btn-primary">
-                Оставить заявку <span class="material-icons-round">arrow_forward</span>
+            <button class="btn btn-primary" onclick="document.getElementById('calculator').scrollIntoView();">
+                Начать движение
             </button>
         </div>
     </header>
 
     <!-- Главный экран -->
     <section class="hero" id="about">
-        <div class="hero-shape shape-1"></div>
-        <div class="hero-shape shape-2"></div>
-        <div class="container hero-content reveal">
-            <h1>Двигайте ваш бизнес вперед с лизингом</h1>
-            <p>Финансирование легковых, грузовых автомобилей и спецтехники. Удобно, прозрачно, в стиле БОЛЭРИЯ.</p>
-            <button class="btn btn-primary" style="padding: 16px 32px; font-size: 1.1rem;">
-                Рассчитать лизинг <span class="material-icons-round">calculate</span>
-            </button>
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <span class="tag">Новый уровень лизинга</span>
+                <h1>Двигайте бизнес <span>вперед</span></h1>
+                <p>Мы превратили лизинг из бюрократии в четкую математическую траекторию. Финансирование автотранспорта и спецтехники на максимальных скоростях.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('calculator').scrollIntoView();">
+                        Рассчитать траекторию <span class="material-icons-round">trending_up</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Картинка 1: Геометрия/Сфера -->
+            <div class="hero-image reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Абстрактная геометрия движения">
+            </div>
         </div>
     </section>
 
-    <!-- Преимущества -->
-    <section class="benefits" id="benefits">
+    <!-- Траектория успеха (С мишенью) -->
+    <section class="trajectory">
+        <div class="container split-section reverse">
+            <!-- Картинка 2: Мишень/Цель -->
+            <div class="split-image reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1000&q=80" alt="Цель бизнеса">
+            </div>
+            <div class="split-content reveal">
+                <span class="tag">Точность решений</span>
+                <h2>Фокус на ваших целях</h2>
+                <p>Мы не просто даем технику в лизинг. Мы выстраиваем кратчайший путь от вашей бизнес-идеи до её реализации. Открываем двери, которые раньше казались закрытыми.</p>
+                <p>Минимальный аванс, понятный график платежей и полное отсутствие скрытых комиссий — это прямое попадание в потребности современного бизнеса.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог (Оставляем машины, т.к. это суть продукта) -->
+    <section class="catalog" id="catalog">
         <div class="container">
-            <h2 class="reveal">Почему БОЛЭРИЯ?</h2>
-            <div class="grid">
-                <div class="card reveal" style="transition-delay: 0.1s;">
-                    <span class="material-icons-round">speed</span>
-                    <h3>Решение за 1 час</h3>
-                    <p>Автоматизированная система скоринга позволяет нам принимать решения быстрее банков.</p>
+            <div style="text-align: center;" class="reveal">
+                <span class="tag">Инструменты роста</span>
+                <h2>Каталог техники</h2>
+            </div>
+            <div class="catalog-grid">
+                <div class="catalog-card reveal" style="transition-delay: 0.1s;">
+                    <div class="catalog-img"><img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=600&q=80" alt="Легковые"></div>
+                    <div class="catalog-info">
+                        <h3>Корпоративные авто</h3>
+                        <p>Представительский класс и авто для менеджеров.</p>
+                        <a href="#calculator" class="catalog-link">Рассчитать <span class="material-icons-round">arrow_right_alt</span></a>
+                    </div>
                 </div>
-                <div class="card reveal" style="transition-delay: 0.2s;">
-                    <span class="material-icons-round">account_balance_wallet</span>
-                    <h3>Аванс от 0%</h3>
-                    <p>Снижаем финансовую нагрузку на ваш бизнес на старте. Платите так, как вам удобно.</p>
+                <div class="catalog-card reveal" style="transition-delay: 0.2s;">
+                    <div class="catalog-img"><img src="https://images.unsplash.com/photo-1616432655845-667cb5f95f4d?auto=format&fit=crop&w=600&q=80" alt="Коммерческие"></div>
+                    <div class="catalog-info">
+                        <h3>Коммерческий транспорт</h3>
+                        <p>Фургоны и легкие грузовики для логистики.</p>
+                        <a href="#calculator" class="catalog-link">Рассчитать <span class="material-icons-round">arrow_right_alt</span></a>
+                    </div>
                 </div>
-                <div class="card reveal" style="transition-delay: 0.3s;">
-                    <span class="material-icons-round">description</span>
-                    <h3>Минимум документов</h3>
-                    <p>Для оформления договора нужен только паспорт руководителя и ИНН компании.</p>
+                <div class="catalog-card reveal" style="transition-delay: 0.3s;">
+                    <div class="catalog-img"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Грузовые"></div>
+                    <div class="catalog-info">
+                        <h3>Грузовые магистрали</h3>
+                        <p>Тягачи и тяжелая техника для масштабных задач.</p>
+                        <a href="#calculator" class="catalog-link">Рассчитать <span class="material-icons-round">arrow_right_alt</span></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Калькулятор -->
+    <!-- Технологии / Преимущества (Со светящейся сферой) -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <span class="tag reveal">Инновации</span>
+            <h2 class="reveal">Алгоритмы скорости</h2>
+            <div class="benefits-grid">
+                <div class="b-cards">
+                    <div class="benefit-card reveal" style="transition-delay: 0.1s;">
+                        <div class="icon-wrap"><span class="material-icons-round">bolt</span></div>
+                        <div>
+                            <h3>Одобрение за 60 минут</h3>
+                            <p>Нейросети анализируют ваш бизнес моментально, исключая человеческий фактор.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card reveal" style="transition-delay: 0.2s;">
+                        <div class="icon-wrap"><span class="material-icons-round">data_usage</span></div>
+                        <div>
+                            <h3>Умный аванс от 0%</h3>
+                            <p>Система сама подберет идеальную финансовую нагрузку на старте.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card reveal" style="transition-delay: 0.3s;">
+                        <div class="icon-wrap"><span class="material-icons-round">fingerprint</span></div>
+                        <div>
+                            <h3>Цифровая сделка</h3>
+                            <p>Подписание по ЭДО без бумаг. 2 документа для старта процесса.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Картинка 3: Инновационная сфера -->
+                <div class="benefits-image reveal" style="transition-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" alt="Технологии лизинга">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Калькулятор (С неоновыми линиями) -->
     <section class="calculator-section" id="calculator">
         <div class="container">
-            <h2 class="reveal" style="text-align: center;">Умный калькулятор</h2>
-            <div class="calc-wrapper reveal">
+            <span class="tag reveal" style="display:block; margin: 0 auto; width: max-content; margin-bottom: 20px;">Моделирование</span>
+            <h2 class="reveal">Задайте параметры траектории</h2>
+            
+            <div class="calc-wrapper reveal" style="transition-delay: 0.2s;">
+                <!-- Картинка 4: Неоновые скорости -->
+                <div class="calc-image">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1000&q=80" alt="Скорость решения">
+                </div>
                 
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span>Стоимость транспорта (?)</span>
-                        <span class="slider-value" id="price-val">5 000 000 ?</span>
+                <div class="calc-body">
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span>Стоимость актива (₽)</span>
+                            <span class="slider-value" id="price-val">5 000 000 ₽</span>
+                        </div>
+                        <input type="range" id="price" min="500000" max="30000000" step="100000" value="5000000">
                     </div>
-                    <input type="range" id="price" min="500000" max="20000000" step="100000" value="5000000">
-                </div>
 
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span>Авансовый платеж (%)</span>
-                        <span class="slider-value" id="advance-val">20%</span>
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span>Стартовый импульс (Аванс %)</span>
+                            <span class="slider-value" id="advance-val">20%</span>
+                        </div>
+                        <input type="range" id="advance" min="0" max="50" step="5" value="20">
                     </div>
-                    <input type="range" id="advance" min="0" max="50" step="5" value="20">
-                </div>
 
-                <div class="slider-group">
-                    <div class="slider-header">
-                        <span>Срок лизинга (мес)</span>
-                        <span class="slider-value" id="term-val">36 мес</span>
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span>Время в пути (Срок, мес)</span>
+                            <span class="slider-value" id="term-val">36 мес</span>
+                        </div>
+                        <input type="range" id="term" min="12" max="60" step="1" value="36">
                     </div>
-                    <input type="range" id="term" min="12" max="60" step="1" value="36">
-                </div>
 
-                <div class="calc-result">
-                    <h4>Ориентировочный ежемесячный платеж</h4>
-                    <div class="total" id="monthly-payment">135 400 ?</div>
-                    <button class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 16px;">
-                        Оформить заявку <span class="material-icons-round">check_circle</span>
-                    </button>
+                    <div class="calc-result">
+                        <h4>Ежемесячная инвестиция в рост</h4>
+                        <div class="total" id="monthly-payment">135 400 ₽</div>
+                        <button class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 18px;">
+                            Запустить процесс <span class="material-icons-round">rocket_launch</span>
+                        </button>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -368,41 +351,41 @@
     <!-- Подвал -->
     <footer id="contacts">
         <div class="container">
-            <h2 style="font-size: 1.5rem; color: var(--text-primary);">БОЛЭРИЯ</h2>
-            <p>Ваш надежный партнер в мире лизинга</p>
-            <p style="margin-top: 20px; font-size: 0.9rem;">© 2024 Лизинговая компания БОЛЭРИЯ. Все права защищены.</p>
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                БОЛЭРИЯ<span class="dot">.</span>
+            </div>
+            <p>Движение, которое приносит прибыль.</p>
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.5;">© 2024 БОЛЭРИЯ Технологичный Лизинг. Все права защищены.</p>
         </div>
     </footer>
 
-    <!-- ================= JAVASCRIPT ================= -->
+    <!-- Скрипты -->
     <script>
-        // Анимация при скролле (Intersection Observer)
+        // Анимация при появлении на экране
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 50) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Вызываем при загрузке
+        reveal();
 
-        // Логика Калькулятора (Формула аннуитетного платежа для примера)
+        // Калькулятор
         const priceInput = document.getElementById('price');
         const advanceInput = document.getElementById('advance');
         const termInput = document.getElementById('term');
-        
         const priceVal = document.getElementById('price-val');
         const advanceVal = document.getElementById('advance-val');
         const termVal = document.getElementById('term-val');
         const paymentResult = document.getElementById('monthly-payment');
 
         function formatMoney(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ?";
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
         }
 
         function calculate() {
@@ -410,38 +393,27 @@
             let advancePercent = parseInt(advanceInput.value);
             let months = parseInt(termInput.value);
 
-            // Обновляем текст
             priceVal.innerText = formatMoney(price);
             advanceVal.innerText = advancePercent + "%";
             termVal.innerText = months + " мес";
 
-            // Симуляция расчета платежа
             let advanceAmount = price * (advancePercent / 100);
             let creditBody = price - advanceAmount;
-            
-            // Процентная ставка (условная для примера, 15% годовых)
             let monthlyRate = (15 / 100) / 12; 
             
-            // Аннуитетный платеж
             let payment;
             if (monthlyRate === 0) {
                 payment = creditBody / months;
             } else {
                 payment = creditBody * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
             }
-            
-            // Добавляем условное удорожание/страховку
-            payment = payment * 1.05;
-
+            payment = payment * 1.05; // удорожание/страховка
             paymentResult.innerText = formatMoney(Math.round(payment));
         }
 
-        // Слушатели событий на слайдеры
         priceInput.addEventListener('input', calculate);
         advanceInput.addEventListener('input', calculate);
         termInput.addEventListener('input', calculate);
-
-        // Первичный расчет при загрузке
         calculate();
     </script>
 </body>
