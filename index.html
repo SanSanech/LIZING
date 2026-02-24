@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БОЛЭРИЯ | Современный лизинг для бизнеса</title>
+    
+    <!-- Подключение шрифтов Google (Roboto) и иконок Material Design -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <style>
+        /* ================= GOOGLE MATERIAL DESIGN VARIABLES ================= */
+        :root {
+            --primary: #1a73e8; /* Google Blue */
+            --primary-hover: #1557b0;
+            --surface: #ffffff;
+            --background: #f8f9fa; /* Light Gray */
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --border: #e8eaed;
+            --shadow-1: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            --shadow-2: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ================= BASE STYLES ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ================= TYPOGRAPHY ================= */
+        h1 { font-size: 3.5rem; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; }
+        h2 { font-size: 2.5rem; font-weight: 500; margin-bottom: 2rem; color: var(--text-primary); }
+        p { color: var(--text-secondary); font-size: 1.1rem; }
+
+        /* ================= BUTTONS (MATERIAL STYLE) ================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 100px; /* Pill shape for Google MD3 */
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 4px rgba(26, 115, 232, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 8px rgba(26, 115, 232, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            background-color: var(--surface);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-secondary); transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(to bottom right, #ffffff, #e8f0fe);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 { margin-bottom: 20px; color: var(--text-primary); }
+        .hero p { margin-bottom: 40px; font-size: 1.25rem; }
+
+        /* Hero Background Animation */
+        .hero-shape {
+            position: absolute;
+            background: rgba(26, 115, 232, 0.05);
+            border-radius: 50%;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+        .shape-1 { width: 400px; height: 400px; top: -100px; right: -50px; }
+        .shape-2 { width: 300px; height: 300px; bottom: 50px; right: 20%; animation-delay: -3s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        /* ================= BENEFITS CARDS ================= */
+        .benefits { padding: 80px 0; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-1);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .card .material-icons-round {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: #e8f0fe;
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; font-weight: 500; }
+
+        /* ================= CALCULATOR (MATERIAL SLIDERS) ================= */
+        .calculator-section {
+            background-color: var(--surface);
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .calc-wrapper {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slider-group { margin-bottom: 30px; }
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .slider-value { color: var(--primary); font-size: 1.2rem; font-weight: 700; background: #e8f0fe; padding: 4px 12px; border-radius: 20px;}
+
+        /* Custom Material Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .calc-result {
+            background: #e8f0fe;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-top: 40px;
+        }
+        .calc-result h4 { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 10px; font-weight: 400;}
+        .calc-result .total { font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 20px;}
+
+        /* ================= FOOTER ================= */
+        footer { background: var(--surface); padding: 40px 0; text-align: center; color: var(--text-secondary); }
+
+        /* ================= SCROLL ANIMATIONS (JS classes) ================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .calc-wrapper { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="material-icons-round">directions_car</span> БОЛЭРИЯ
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#benefits">Преимущества</a></li>
+                <li><a href="#calculator">Калькулятор</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <button class="btn btn-primary">
+                Оставить заявку <span class="material-icons-round">arrow_forward</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero" id="about">
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+        <div class="container hero-content reveal">
+            <h1>Двигайте ваш бизнес вперед с лизингом</h1>
+            <p>Финансирование легковых, грузовых автомобилей и спецтехники. Удобно, прозрачно, в стиле БОЛЭРИЯ.</p>
+            <button class="btn btn-primary" style="padding: 16px 32px; font-size: 1.1rem;">
+                Рассчитать лизинг <span class="material-icons-round">calculate</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="reveal">Почему БОЛЭРИЯ?</h2>
+            <div class="grid">
+                <div class="card reveal" style="transition-delay: 0.1s;">
+                    <span class="material-icons-round">speed</span>
+                    <h3>Решение за 1 час</h3>
+                    <p>Автоматизированная система скоринга позволяет нам принимать решения быстрее банков.</p>
+                </div>
+                <div class="card reveal" style="transition-delay: 0.2s;">
+                    <span class="material-icons-round">account_balance_wallet</span>
+                    <h3>Аванс от 0%</h3>
+                    <p>Снижаем финансовую нагрузку на ваш бизнес на старте. Платите так, как вам удобно.</p>
+                </div>
+                <div class="card reveal" style="transition-delay: 0.3s;">
+                    <span class="material-icons-round">description</span>
+                    <h3>Минимум документов</h3>
+                    <p>Для оформления договора нужен только паспорт руководителя и ИНН компании.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Калькулятор -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <h2 class="reveal" style="text-align: center;">Умный калькулятор</h2>
+            <div class="calc-wrapper reveal">
+                
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span>Стоимость транспорта (?)</span>
+                        <span class="slider-value" id="price-val">5 000 000 ?</span>
+                    </div>
+                    <input type="range" id="price" min="500000" max="20000000" step="100000" value="5000000">
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span>Авансовый платеж (%)</span>
+                        <span class="slider-value" id="advance-val">20%</span>
+                    </div>
+                    <input type="range" id="advance" min="0" max="50" step="5" value="20">
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span>Срок лизинга (мес)</span>
+                        <span class="slider-value" id="term-val">36 мес</span>
+                    </div>
+                    <input type="range" id="term" min="12" max="60" step="1" value="36">
+                </div>
+
+                <div class="calc-result">
+                    <h4>Ориентировочный ежемесячный платеж</h4>
+                    <div class="total" id="monthly-payment">135 400 ?</div>
+                    <button class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 16px;">
+                        Оформить заявку <span class="material-icons-round">check_circle</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer id="contacts">
+        <div class="container">
+            <h2 style="font-size: 1.5rem; color: var(--text-primary);">БОЛЭРИЯ</h2>
+            <p>Ваш надежный партнер в мире лизинга</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">© 2024 Лизинговая компания БОЛЭРИЯ. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Анимация при скролле (Intersection Observer)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Вызываем при загрузке
+
+        // Логика Калькулятора (Формула аннуитетного платежа для примера)
+        const priceInput = document.getElementById('price');
+        const advanceInput = document.getElementById('advance');
+        const termInput = document.getElementById('term');
+        
+        const priceVal = document.getElementById('price-val');
+        const advanceVal = document.getElementById('advance-val');
+        const termVal = document.getElementById('term-val');
+        const paymentResult = document.getElementById('monthly-payment');
+
+        function formatMoney(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ?";
+        }
+
+        function calculate() {
+            let price = parseInt(priceInput.value);
+            let advancePercent = parseInt(advanceInput.value);
+            let months = parseInt(termInput.value);
+
+            // Обновляем текст
+            priceVal.innerText = formatMoney(price);
+            advanceVal.innerText = advancePercent + "%";
+            termVal.innerText = months + " мес";
+
+            // Симуляция расчета платежа
+            let advanceAmount = price * (advancePercent / 100);
+            let creditBody = price - advanceAmount;
+            
+            // Процентная ставка (условная для примера, 15% годовых)
+            let monthlyRate = (15 / 100) / 12; 
+            
+            // Аннуитетный платеж
+            let payment;
+            if (monthlyRate === 0) {
+                payment = creditBody / months;
+            } else {
+                payment = creditBody * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+            }
+            
+            // Добавляем условное удорожание/страховку
+            payment = payment * 1.05;
+
+            paymentResult.innerText = formatMoney(Math.round(payment));
+        }
+
+        // Слушатели событий на слайдеры
+        priceInput.addEventListener('input', calculate);
+        advanceInput.addEventListener('input', calculate);
+        termInput.addEventListener('input', calculate);
+
+        // Первичный расчет при загрузке
+        calculate();
+    </script>
+</body>
+</html>
